@@ -1,6 +1,8 @@
 #include <iostream>
 
-// Определение структуры узла списка
+using namespace std;
+
+// Определение структуры узла
 struct Node {
     float data;
     Node* next;
@@ -8,7 +10,7 @@ struct Node {
     Node(float value) : data(value), next(nullptr) {}
 };
 
-// Класс односвязного списка
+// Односвязный список
 class LinkedList {
 private:
     Node* head;
@@ -16,14 +18,14 @@ private:
 public:
     LinkedList() : head(nullptr) {}
 
-    // Вставка нового узла перед первым узлом
+    // Вставка нового узла
     void insertAtBeginning(float data) {
         Node* newNode = new Node(data);
         newNode->next = head;
         head = newNode;
     }
 
-    // Удаление узла по значению
+    // Удаление узла
     void deleteNode(float key) {
         Node* temp = head;
         Node* prev = nullptr;
@@ -45,7 +47,7 @@ public:
         delete temp;
     }
 
-    // Вывод списка в консоль
+    // Вывод списка
     void printList() {
         Node* temp = head;
         while (temp != nullptr) {
@@ -55,7 +57,7 @@ public:
         std::cout << std::endl;
     }
 
-    // Переносит первые k узлов в конец списка
+    // Перенос первых k узлов в конец списка
     void moveFirstKToEnd(int k) {
         if (head == nullptr || k <= 0) return;
 
