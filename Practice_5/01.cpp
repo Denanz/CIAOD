@@ -54,7 +54,7 @@ public:
             std::cout << temp->data << " ";
             temp = temp->next;
         }
-        std::cout << std::endl;
+        cout << endl;
     }
 
     // Перенос первых k узлов в конец списка
@@ -106,10 +106,10 @@ public:
 
     // Удаляет предпоследний узел списка
     void deleteSecondLastNode() {
-        if (head == nullptr || head->next == nullptr) return;
+        if (head == nullptr || head->next == nullptr || head->next->next == nullptr) return;
 
         Node* temp = head;
-        while (temp->next->next != nullptr) {
+        while (temp->next->next->next != nullptr) {
             temp = temp->next;
         }
 
@@ -119,53 +119,56 @@ public:
     }
 };
 
+
+
+
 int main() {
     LinkedList linkedList;
     int n;
-    std::cout << "Enter the number of elements in the list: ";
-    std::cin >> n;
-    std::cout << "Enter the elements of the list: " << std::endl;
+    cout << "Enter the number of elements in the list: ";
+    cin >> n;
+    cout << "Enter the elements of the list: " << std::endl;
     for (int i = 0; i < n; ++i) {
         float data;
-        std::cin >> data;
+        cin >> data;
         linkedList.insertAtBeginning(data);
     }
 
     int choice;
     do {
-        std::cout << "\nChoose an operation:" << std::endl;
-        std::cout << "1. Print the list" << std::endl;
-        std::cout << "2. Move the first k elements to the end of the list" << std::endl;
-        std::cout << "3. Swap nodes with maximum and minimum values" << std::endl;
-        std::cout << "4. Delete the second last node of the list" << std::endl;
-        std::cout << "5. Exit" << std::endl;
+        cout << "\nChoose an operation:" << std::endl;
+        cout << "1. Print the list" << std::endl;
+        cout << "2. Move the first k elements to the end of the list" << endl;
+        cout << "3. Swap nodes with maximum and minimum values" << endl;
+        cout << "4. Delete the second last node of the list" << endl;
+        cout << "5. Exit" << std::endl;
 
-        std::cin >> choice;
+        cin >> choice;
 
         switch (choice) {
             case 1:
-                std::cout << "List: ";
+                cout << "List: ";
                 linkedList.printList();
                 break;
             case 2:
                 int k;
-                std::cout << "Enter the number of nodes to move to the end: ";
-                std::cin >> k;
+                cout << "Enter the number of nodes to move to the end: ";
+                cin >> k;
                 linkedList.moveFirstKToEnd(k);
-                std::cout << "Nodes moved." << std::endl;
+                cout << "Nodes moved." << std::endl;
                 break;
             case 3:
                 linkedList.swapMaxMinNodes();
-                std::cout << "Nodes with maximum and minimum values swapped." << std::endl;
+                cout << "Nodes with maximum and minimum values swapped." << endl;
                 break;
             case 4:
                 linkedList.deleteSecondLastNode();
-                std::cout << "Second last node deleted." << std::endl;
+                cout << "Second last node deleted." << std::endl;
                 break;
             case 5:
                 break;
             default:
-                std::cout << "Invalid choice. Please try again." << std::endl;
+                cout << "Invalid choice. Please try again." << endl;
         }
     } while (choice != 5);
 
