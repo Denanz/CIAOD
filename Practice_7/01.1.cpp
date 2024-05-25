@@ -2,7 +2,9 @@
 #include <vector>
 #include <algorithm>
 
-int findMaxIterative(const std::vector<int>& arr) {
+using namespace std;
+
+int findMaxIterative(const vector<int>& arr) {
     int maxElement = arr[0];
     for (int element : arr) {
         if (element > maxElement) {
@@ -13,7 +15,7 @@ int findMaxIterative(const std::vector<int>& arr) {
 }
 
 int main() {
-    std::vector<int> arr = {3, 1, 4, 1, 5, 9, 2, 6};
-    std::cout << "Maximum element (Iterative): " << findMaxIterative(arr) << std::endl;
+    vector<int> arr = {3, 1, 4, 1, 5, 9, 2, 6};
+    cout << "Maximum element (Iterative): " << findMaxIterative(arr) << endl;
     return 0;
 }
